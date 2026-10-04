@@ -1,3 +1,21 @@
+# XP Eletrônicos · PS4
+
+Versão personalizada do [WebKitty de ArabPixel](https://github.com/ArabePixel/webkitty), com interface em português, identidade XP Eletrônicos e QR codes para WhatsApp e Instagram. As opções de Linux e o detector Southbridge foram retirados da interface e do cache. O mecanismo de desbloqueio e os payloads restantes são os originais.
+
+Acesse **http://ps4.xpeletronicos.com** pelo PS4. No computador também está disponível por HTTPS. Após a atualização, selecione **Atualizar cache** no PS4 para substituir a versão offline anterior.
+
+Contato via QR code: WhatsApp +55 61 99514-9019 · Instagram @eletronicos.xp.
+
+```sh
+npm ci --ignore-scripts
+npm test
+npm run build
+```
+
+Licença AGPL-3.0 e créditos originais preservados abaixo. A logo XP foi recriada com geração de imagem a partir da referência fornecida pelo proprietário. Os QR codes foram gerados a partir dos endereços reais dos contatos e validados com decodificação.
+
+---
+
 <div align="center">
 
 # WebKitty
