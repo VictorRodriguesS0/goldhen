@@ -29,9 +29,11 @@ Tech Stack: JavaScript, HTML, CSS, Babel existente, Node test runner, Nginx e Do
 - [x] Atualizar manifests e gerar `includes/js/index-legacy.js` com `npm run build`.
 - [x] Executar testes, verificar todos os manifests e revisar o diff sem alterações na cadeia de exploração.
 - [x] Conferir a interface, menus e catálogo no navegador em um servidor local sem executar o jailbreak.
-- [ ] Publicar os arquivos no fork autenticado e confirmar o commit remoto.
-- [ ] Preparar na VPS uma versão dedicada a partir do commit publicado, conferir arquivos e salvar o estado dos serviços e backup.
-- [ ] Atualizar somente o projeto PS4, verificar o cache, HTTP/HTTPS e comparar os serviços com o estado imediatamente anterior.
-- [ ] Salvar comprovantes, atualizar a documentação e entregar os links do repositório e do site.
+- [x] Publicar os arquivos no fork autenticado e confirmar o commit remoto.
+- [x] Preparar na VPS uma versão dedicada a partir do commit publicado, conferir arquivos e salvar o estado dos serviços e backup.
+- [x] Atualizar somente o projeto PS4, verificar o cache, HTTP/HTTPS e comparar os serviços com o estado imediatamente anterior.
+- [x] Salvar comprovantes, atualizar a documentação e entregar os links do repositório e do site.
 
 Comandos locais: `npm test`, `npm run build`, `git diff --check`. Conferir manifests com caminhos resolvidos dentro da raiz do site e exclusão dos arquivos Linux.
+
+Conclusão: revisão 3a455d18e409f1813aa39e79758aad80b715d6f8 instalada e verificada. Foram mantidos 47 contêineres sem reinício e as respostas de 22 outros hosts. Backup salvo, 797 referências de cache e 156 recursos HTTP únicos validados. QR codes verificados também na captura da página publicada.
