@@ -1,8 +1,17 @@
+// Migrates the original host once, then keeps the language chosen by the user.
+function getPreferredLanguage() {
+    if (localStorage.getItem('xpLanguageInitialized') !== '1') {
+        localStorage.setItem('language', 'pt-BR');
+        localStorage.setItem('xpLanguageInitialized', '1');
+    }
+    return localStorage.getItem('language') || 'pt-BR';
+}
+
 function loadLanguage() {
     var langRadio = document.querySelector(`input[name="language"][value="${user.currentLanguage}"]`);
     if (!langRadio) {
-        user.currentLanguage = 'en';
-        langRadio = document.querySelector(`input[name="language"][value="en"]`);
+        user.currentLanguage = 'pt-BR';
+        langRadio = document.querySelector(`input[name="language"][value="pt-BR"]`);
     }
     langRadio.checked = true;
 
@@ -65,7 +74,7 @@ function applyLanguage(lang) {
     document.title = projectName;
     document.dir = rtlLangs.includes(user.currentLanguage) ? 'rtl' : 'ltr';
     ui.consoleElement.dir = document.dir;
-    document.lang = user.currentLanguage;
+    document.documentElement.lang = user.currentLanguage;
 
 
     // PS4 Firmware Status Check
@@ -88,7 +97,7 @@ function applyLanguage(lang) {
     // Main Screen Elements
     updateTitle(ui.settingsBtn, 'settingsBtnTitle');
     if (localStorage.getItem('theme') == "compact") {
-        updateText(ui.clickToStartText, projectName);
+        ui.clickToStartText.textContent = projectName;
     } else updateText(ui.clickToStartText, 'clickToStart');
 
     updateText(document.querySelector('#choosejb-initial h3'), 'chooseHEN');
@@ -168,7 +177,9 @@ function applyLanguage(lang) {
     updateText(ui.payloadsSectionTitle, 'payloadsHeader');
     updateText(ui.toolsTab, 'payloadsToolsHeader');
     updateText(ui.homebrewTab, 'payloadsHomebrewHeader');
-    updateText(ui.linuxTab, 'payloadsLinuxHeader');
+    updateText(ui.customPayloadsTab, 'customPayload');
+    updateText(document.querySelector('#custom p'), 'customPayloadHelp');
+    updateText(ui.stopAutoJbBtn, 'stopAutoJb');
     updateText(ui.advancedPayloadsTab, 'advanced');
     updateText(ui.consoleElement.querySelector('center'), 'waitingUserInput');
     updateText(ui.updateCacheBtn, 'updateCache');
