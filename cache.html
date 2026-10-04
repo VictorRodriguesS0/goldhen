@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>WebKitty - Caching</title>
+    <title>XP Eletrônicos · Cache</title>
     <meta name="author" content="ArabPixel">
     <link rel="stylesheet" href="includes/css/colors/default.css">
     <link rel="stylesheet" href="includes/css/layouts/index.css">
@@ -14,13 +14,13 @@
 <body class="bg-gray-900 text-white">
     <main class="mainContainer">
         <section class="cache-screen">
-            <div class="cache-title">Caching WebKitty</div>
+            <div class="cache-title">Preparando acesso offline</div>
             <div class="progress-bar-wrap">
                 <div class="progress-bar-fill" id="progressFill"></div>
             </div>
-            <div class="cache-subtitle" id="cacheStatus">Preparing...</div>
+            <div class="cache-subtitle" id="cacheStatus">Preparando...</div>
         </section>
-        <div class="absolute bottom-10 text-center w-full">Firmware-Based Caching System</div>
+        <div class="absolute bottom-10 text-center w-full">Cache específico para o firmware do seu PS4</div>
     </main>
 
     <iframe id="cacheFrame" src="about:blank"></iframe>
@@ -66,24 +66,24 @@
             if (data.type === 'CACHE_PROGRESS') {
                 if (data.percent >= 0) {
                     fillEl.style.width = data.percent + '%';
-                    statusEl.textContent = 'Downloading... ' + data.percent + '%';
+                    statusEl.textContent = 'Baixando... ' + data.percent + '%';
                 } else {
-                    statusEl.textContent = 'Downloading... (' + data.loaded + ' of ' + data.total + ')';
+                    statusEl.textContent = 'Baixando... (' + data.loaded + ' de ' + data.total + ')';
                 }
             } else if (data.type === 'CACHE_COMPLETE' || data.type === 'CACHE_EXISTS') {
                 fillEl.style.width = '100%';
-                statusEl.textContent = data.type === 'CACHE_EXISTS' ? 'Already cached! Redirecting...' : 'Done! Redirecting...';
+                statusEl.textContent = data.type === 'CACHE_EXISTS' ? 'Cache já instalado! Voltando...' : 'Concluído! Voltando...';
                 setTimeout(function () {
                     window.location.replace('./');
                 }, 1000);
 
             } else if (data.type === 'CACHE_CHECKING') {
-                statusEl.textContent = 'Checking cache...';
+                statusEl.textContent = 'Verificando cache...';
             } else if (data.type === 'CACHE_DOWNLOADING') {
-                statusEl.textContent = 'Caching files...';
+                statusEl.textContent = 'Salvando arquivos no cache...';
             } else if (data.type === 'CACHE_ERROR') {
-                var reason = data.reason || 'Unknown error';
-                statusEl.textContent = 'Cache error: ' + reason;
+                var reason = data.reason || 'Erro desconhecido';
+                statusEl.textContent = 'Erro no cache: ' + reason;
                 setTimeout(function () {
                     window.location.replace('./');
                 }, 3000);
@@ -91,7 +91,7 @@
         }, false);
 
         // Load the firmware-based cache page into the hidden iframe
-        statusEl.textContent = 'Starting cache for firmware ' + (fwVersion || 'unknown') + '...';
+        statusEl.textContent = 'Iniciando cache para o firmware ' + (fwVersion || 'desconhecido') + '...';
         frame.src = targetPage;
     </script>
 </body>
