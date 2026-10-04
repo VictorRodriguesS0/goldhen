@@ -1,10 +1,11 @@
 
 // payloads tabs
 function loadLastTab() {
-    if (user.lastTab == "advanced" && user.advancedPayloads != "true") {
-        // set last tab to tools
+    const validTabs = ['tools', 'homebrew', 'advanced', 'custom'];
+    if (!validTabs.includes(user.lastTab) ||
+        (user.lastTab === 'advanced' && String(user.advancedPayloads) !== 'true')) {
         user.lastTab = "tools";
-        ui.toolsSection.click();
+        localStorage.setItem('lastTab', 'tools');
     }
     document.getElementById(user.lastTab).classList.remove('hidden');
     document.getElementById(user.lastTab + '-tab').setAttribute("aria-selected", "true");
@@ -19,7 +20,6 @@ function saveLastTab(tab) {
     const sections = {
         'tools': ui.toolsSection,
         'homebrew': ui.homebrewSection,
-        'linux': ui.linuxSection,
         'advanced': ui.advancedPayloadsSection,
         'custom': ui.customPayloadsSection
     };
@@ -65,22 +65,22 @@ async function Loadpayloads(payload, name, payloadId) {
                 targetFunc(name, payloadId);
             }
         } else {
-            alert(`Payload function ${payload} not found.`);
+            alert(`Função do payload ${payload} não encontrada.`);
         }
 
     } catch (e) {
-        alert('Failed to load payload: ' + payload + " | Error: " + e);
+        alert('Falha ao carregar payload: ' + payload + " | Erro: " + e);
     }
 }
 
 function renderPayloads(payloads) {
+    if (!payloads.length) return;
     // Identify the target container first
     const firstCategory = payloads[0].category;
     let targetContainer;
 
     if (firstCategory === 'tools') targetContainer = ui.toolsSection;
     else if (firstCategory === 'homebrew') targetContainer = ui.homebrewSection;
-    else if (firstCategory === 'linux') targetContainer = ui.linuxSection;
     else if (firstCategory === 'advanced') targetContainer = ui.advancedPayloadsSection;
 
     // Clear to prevent duplicates
@@ -104,7 +104,7 @@ function renderPayloads(payloads) {
                   </div>
               </div>
               <span class="px-2 py-1 rounded-full text-xs border ${getPayloadCategoryClass(payload.category)}">
-                  ${payload.category}
+                  ${getPayloadCategoryLabel(payload.category)}
               </span>
           </div>
           <p class="text-start text-white/70 text-sm leading-relaxed">${payload.description}</p>
@@ -120,9 +120,6 @@ function renderPayloads(payloads) {
                 break;
             case "homebrew":
                 ui.homebrewSection.appendChild(payloadCard);
-                break;
-            case "linux":
-                ui.linuxSection.appendChild(payloadCard);
                 break;
             case "advanced":
                 ui.advancedPayloadsSection.appendChild(payloadCard);
@@ -148,8 +145,13 @@ function getPayloadCategoryClass(category) {
     switch (category) {
         case 'tools': return 'category-tools';
         case 'homebrew': return 'category-homebrew';
-        case 'linux': return 'category-linux';
         case 'advanced': return 'category-advanced';
         default: return '';
     }
+}
+
+function getPayloadCategoryLabel(category) {
+    const strings = window.lang || {};
+    const labels = { tools: strings.payloadsToolsHeader, homebrew: strings.payloadsHomebrewHeader, advanced: strings.advanced };
+    return labels[category] || category;
 }
