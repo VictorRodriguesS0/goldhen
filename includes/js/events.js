@@ -39,13 +39,11 @@ ui.toolsTab.addEventListener('click', () => {
     if (ui.toolsSection.classList.contains('hidden')) {
         ui.toolsSection.classList.remove('hidden');
         ui.homebrewSection.classList.add('hidden');
-        ui.linuxSection.classList.add('hidden');
         ui.advancedPayloadsSection.classList.add('hidden');
         ui.customPayloadsSection.classList.add('hidden');
 
         ui.toolsTab.setAttribute("aria-selected", "true");
         ui.homebrewTab.setAttribute("aria-selected", "false");
-        ui.linuxTab.setAttribute("aria-selected", "false");
         ui.advancedPayloadsTab.setAttribute("aria-selected", "false");
         ui.customPayloadsTab.setAttribute("aria-selected", "false");
 
@@ -61,13 +59,11 @@ ui.homebrewTab.addEventListener('click', () => {
     if (ui.homebrewSection.classList.contains('hidden')) {
         ui.toolsSection.classList.add('hidden');
         ui.homebrewSection.classList.remove('hidden');
-        ui.linuxSection.classList.add('hidden');
         ui.advancedPayloadsSection.classList.add('hidden');
         ui.customPayloadsSection.classList.add('hidden');
 
         ui.toolsTab.setAttribute("aria-selected", "false");
         ui.homebrewTab.setAttribute("aria-selected", "true");
-        ui.linuxTab.setAttribute("aria-selected", "false");
         ui.advancedPayloadsTab.setAttribute("aria-selected", "false");
         ui.customPayloadsTab.setAttribute("aria-selected", "false");
 
@@ -79,39 +75,16 @@ ui.homebrewTab.addEventListener('click', () => {
     saveLastTab('homebrew');
 })
 
-ui.linuxTab.addEventListener('click', () => {
-    if (ui.linuxSection.classList.contains('hidden')) {
-        ui.toolsSection.classList.add('hidden');
-        ui.homebrewSection.classList.add('hidden');
-        ui.linuxSection.classList.remove('hidden');
-        ui.advancedPayloadsSection.classList.add('hidden');
-        ui.customPayloadsSection.classList.add('hidden');
-
-        ui.toolsTab.setAttribute("aria-selected", "false");
-        ui.homebrewTab.setAttribute("aria-selected", "false");
-        ui.linuxTab.setAttribute("aria-selected", "true");
-        ui.advancedPayloadsTab.setAttribute("aria-selected", "false");
-        ui.customPayloadsTab.setAttribute("aria-selected", "false");
-
-        ui.linuxSection.innerHTML = '';
-        renderPayloads(payloadsList.filter(p => p.category === 'linux'));
-    }
-    ui.payloadsList.scrollTop = 0;
-    // Update lastTap
-    saveLastTab('linux');
-});
 
 ui.advancedPayloadsTab.addEventListener('click', () => {
     if (ui.advancedPayloadsSection.classList.contains('hidden')) {
         ui.toolsSection.classList.add('hidden');
         ui.homebrewSection.classList.add('hidden');
-        ui.linuxSection.classList.add('hidden');
         ui.advancedPayloadsSection.classList.remove('hidden');
         ui.customPayloadsSection.classList.add('hidden');
 
         ui.toolsTab.setAttribute("aria-selected", "false");
         ui.homebrewTab.setAttribute("aria-selected", "false");
-        ui.linuxTab.setAttribute("aria-selected", "false");
         ui.advancedPayloadsTab.setAttribute("aria-selected", "true");
         ui.customPayloadsTab.setAttribute("aria-selected", "false");
 
@@ -128,13 +101,11 @@ ui.customPayloadsTab.addEventListener('click', () => {
     if (ui.customPayloadsSection.classList.contains('hidden')) {
         ui.toolsSection.classList.add('hidden');
         ui.homebrewSection.classList.add('hidden');
-        ui.linuxSection.classList.add('hidden');
         ui.advancedPayloadsSection.classList.add('hidden');
         ui.customPayloadsSection.classList.remove('hidden');
 
         ui.toolsTab.setAttribute("aria-selected", "false");
         ui.homebrewTab.setAttribute("aria-selected", "false");
-        ui.linuxTab.setAttribute("aria-selected", "false");
         ui.advancedPayloadsTab.setAttribute("aria-selected", "false");
         ui.customPayloadsTab.setAttribute("aria-selected", "true");
     }
@@ -209,7 +180,7 @@ function exploitChain(value) {
 
 function setBareboneJB(checked) {
     if (user.ps4Fw >= 6.70 && user.ps4Fw <= 6.72 && checked) {
-        alert("Jailbreak now?");
+        alert("Iniciar desbloqueio?");
         chooseHEN();
         cleanUp();
         window.location.href = "./exploit.html";
@@ -232,11 +203,11 @@ function shutdownServer() {
 
     fetch('/shutdown')
         .then(() => {
-            alert("Server is shutting down. The page will now reload.");
+            alert("O servidor do PS4 está sendo encerrado. A página será recarregada.");
             window.location.reload();
         })
         .catch(err => {
-            alert("Server stopped? (connection lost).");
+            alert("Conexão perdida. O servidor do PS4 pode ter sido encerrado.");
             window.location.reload();
         });
 }
