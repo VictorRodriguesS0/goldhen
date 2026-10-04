@@ -3,7 +3,7 @@ const payloadsList = [
     id: "FTP",
     name: "FTP",
     author: "Scene Collective",
-    description: "Enables FTP server access for file transfers.",
+    description: "Ativa o servidor FTP para transferir arquivos.",
     specificFW: "",
     category: "tools",
     funcName: "load_FTP"
@@ -12,7 +12,7 @@ const payloadsList = [
     id: "BinLoader",
     name: "BinLoader",
     author: "Exploit",
-    description: "Launches BinLoader server on port 9020 to send bin payloads.",
+    description: "Inicia o servidor BinLoader na porta 9020 para receber payloads .bin.",
     specificFW: "7.00 - 9.60",
     category: "tools",
     funcName: "load_BinLoader"
@@ -21,43 +21,34 @@ const payloadsList = [
     id: "ElfLoader",
     name: "ElfLoader",
     author: "John T&#246;rnblom",
-    description: "Launches ElfLoader server on port 9021 to send elf payloads.",
+    description: "Inicia o servidor ElfLoader na porta 9021 para receber payloads .elf.",
     specificFW: "",
     category: "tools",
     funcName: "load_Elfldr"
   },
   {
     id: "DisableUpdates",
-    name: "Disable-Updates",
+    name: "Desativar atualizações",
     author: "Scene Collective",
-    description: "Disables automatic system software updates.",
+    description: "Desativa as atualizações automáticas do sistema.",
     specificFW: "",
     category: "tools",
     funcName: "load_DisableUpdates"
   },
   {
-    id: "DetectSouthbridge",
-    name: "Detect-Southbridge",
-    author: "ArabPixel",
-    description: "Detects your PS4's Southbridge. Useful for setting up PS4 Linux.",
-    specificFW: "",
-    category: "tools",
-    funcName: "load_ps4SouthbridgeDetector"
-  },
-  {
     id: "FanThreshold",
-    name: "Fan-Threshold",
+    name: "Temperatura da ventoinha",
     author: "Scene Collective",
-    description: "Sets the cooling fan's profile on the PlayStation 4",
+    description: "Define o perfil de resfriamento da ventoinha do PlayStation 4.",
     specificFW: "",
     category: "tools",
     funcName: "chooseFanThreshold"
   },
   {
     id: "HistoryBlocker",
-    name: "History-Blocker",
+    name: "Bloquear histórico",
     author: "Stooged",
-    description: "Blocks the browser from remembering and returning to the last opened page on start. Run again to enable/disable.",
+    description: "Impede o navegador de reabrir a última página ao iniciar. Execute novamente para ativar ou desativar.",
     specificFW: "",
     category: "tools",
     funcName: "load_HistoryBlocker"
@@ -66,7 +57,7 @@ const payloadsList = [
     id: "WebSrv",
     name: "PS4-Websrv",
     author: "ArabPixel",
-    description: "Launches a web server on port 80 on the PS4 to load payloads using external devices on the fly.",
+    description: "Inicia um servidor web na porta 80 do PS4 para receber payloads de outros dispositivos.",
     specificFW: "",
     category: "tools",
     funcName: "load_WebSrv"
@@ -75,7 +66,7 @@ const payloadsList = [
     id: "NpFakeSignin",
     name: "NP Fake Signin",
     author: "earthonion",
-    description: "Sets PSN state to 'signed in' on PS4, use after fake activation. Useful for vue after free",
+    description: "Define o estado da PSN como conectado. Use após a ativação simulada; útil para o vue after free.",
     specificFW: "",
     category: "tools",
     funcName: "load_npFakeSignin"
@@ -84,43 +75,43 @@ const payloadsList = [
     id: "OrbisToolbox",
     name: "Orbis-Toolbox",
     author: "OSM-Made",
-    description: "A modification of the playstation UI to help with launching and developing homebrew..",
+    description: "Modifica a interface do PlayStation para ajudar a executar e desenvolver homebrew.",
     specificFW: "5.05, 6.72, 7.02, 7.55, 9.00",
     category: "tools",
     funcName: "load_Orbis"
   },
   {
     id: "BackupDB",
-    name: "Backup-DB",
+    name: "Backup dos dados",
     author: "Stooged",
-    description: "Backs up your PS4's databases, licenses, and user data. Note this may not be useful if you have to reinitalize as your keys may change.",
+    description: "Faz backup dos bancos de dados, licenças e dados de usuário. Após reinicializar o sistema, as chaves podem mudar e impedir a restauração.",
     specificFW: "",
     category: "tools",
     funcName: "load_BackupDB"
   },
   {
     id: "RestoreDB",
-    name: "Restore-DB",
+    name: "Restaurar dados",
     author: "Stooged",
-    description: "Restores the data saved in the 'Backup' payload.",
+    description: "Restaura os dados salvos pelo payload de backup.",
     specificFW: "",
     category: "tools",
     funcName: "load_RestoreDB"
   },
   {
     id: "DBRebuilder",
-    name: "DB-Rebuilder",
+    name: "Reconstruir banco de dados",
     author: "4GAMER",
-    description: "Rebuilds the PS4's FPKG database, bringing homebrew icons back to the home screen.",
+    description: "Reconstrói o banco de dados FPKG e recupera os ícones de homebrew na tela inicial.",
     specificFW: "",
     category: "tools",
     funcName: "load_DBRebuilder"
   },
   {
     id: "ExitIDU",
-    name: "ExitIDU",
+    name: "Sair do modo IDU",
     author: "Scene Collective",
-    description: "Exits IDU mode and restarts the console.",
+    description: "Sai do modo IDU e reinicia o console.",
     specificFW: "",
     category: "tools",
     funcName: "load_ExitIDU"
@@ -128,8 +119,8 @@ const payloadsList = [
   {
     id: "WebRTE",
     name: "WebRTE",
-    author: "Made by golden<br>updated by EchoStretch",
-    description: "Web Realtime Trainer Engine",
+    author: "Criado por golden<br>atualizado por EchoStretch",
+    description: "Ferramenta de modificação de jogos em tempo real pela rede.",
     specificFW: "5.05, 6.72, 7.00-11.00",
     category: "tools",
     funcName: "load_WebRTE"
@@ -138,169 +129,106 @@ const payloadsList = [
     id: "App2USB",
     name: "App2USB",
     author: "Stooged",
-    description: "Unofficially Moves installed applications to an external USB drive.",
+    description: "Move os aplicativos instalados para uma unidade USB externa de forma não oficial.",
     specificFW: "",
     category: "tools",
     funcName: "load_App2USB"
   },
   {
-    id: "Linux1024mb",
-    name: "Linux Loader 1GB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 1GB VRAM. Select for first install",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux2048mb",
-    name: "Linux Loader 2GB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 2GB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux3072mb",
-    name: "Linux Loader 3GB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 3GB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux4096mb",
-    name: "Linux Loader 4GB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 4GB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux128mb",
-    name: "Linux Loader 128MB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 128MB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux256mb",
-    name: "Linux Loader 256MB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 256MB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
-    id: "Linux512mb",
-    name: "Linux Loader 512MB",
-    author: "ps4boot<br>ArabPixel, rmux",
-    description: "Linux Loader for all consoles. 512MB VRAM.",
-    specificFW: "5.05, 6.72 - 13.52",
-    category: "linux",
-    funcName: "load_Linux"
-  },
-  {
     id: "PS4Debug",
     name: "PS4-Debug",
     author: "CTN & SiSTR0",
-    description: "Debugging tools for PS4.",
-    specificFW: "up to 12.02",
+    description: "Ferramentas de depuração para PS4.",
+    specificFW: "até 12.02",
     category: "advanced",
     funcName: "load_PS4Debug"
   },
   {
     id: "PUPDecrypt",
-    name: "PUP-Decrypt",
+    name: "Descriptografar PUP",
     author: "andy-man",
-    description: "Payload to decrypt the contents of a firmware update file (PUP) on the PS4",
+    description: "Descriptografa o conteúdo de um arquivo de atualização de firmware (PUP) no PS4.",
     specificFW: "",
     category: "advanced",
     funcName: "load_PUPDecrypt"
   },
   {
     id: "ModuleDumper",
-    name: "Module-Dumper",
+    name: "Extrair módulos",
     author: "SocraticBliss",
-    description: "Dumps the decrypted modules from /system, /system_ex, /update and the root of the filesystem to a USB device.",
+    description: "Copia os módulos descriptografados de /system, /system_ex, /update e da raiz do sistema para um dispositivo USB.",
     specificFW: "",
     category: "advanced",
     funcName: "load_ModuleDumper"
   },
   {
     id: "KernelDumper",
-    name: "Kernel-Dumper",
+    name: "Extrair kernel",
     author: "Eversion",
-    description: "Dumps the PS4 kernel.",
+    description: "Extrai uma cópia do kernel do PS4.",
     specificFW: "",
     category: "advanced",
     funcName: "load_KernelDumper"
   },
   {
     id: "DisableASLR",
-    name: "Disable-ASLR",
+    name: "Desativar ASLR",
     author: "Scene Collective",
-    description: "Disables the ASLR (Address space layout randomization) to make working with memory easier/repeatable.",
+    description: "Desativa a randomização de endereços de memória (ASLR), facilitando o trabalho com a memória.",
     specificFW: "",
     category: "advanced",
     funcName: "load_DisableASLR"
   },
   {
     id: "PermanentUART",
-    name: "Permanent-UART",
+    name: "UART permanente",
     author: "JTAG7371",
-    description: "Enabled hardware based UART without a kernel patch, persists though updates.",
+    description: "Ativa a UART por hardware sem alterar o kernel. A configuração permanece após atualizações.",
     specificFW: "",
     category: "advanced",
     funcName: "load_PermanentUART"
   },
   {
     id: "RIFRenamer",
-    name: "RIF-Renamer",
+    name: "Renomear licenças RIF",
     author: "Al Azif",
-    description: "Renames 'fake' RIFs to 'free' RIFs for better HEN compatibility. Use this if your PKGs only work with Mira+HEN.",
+    description: "Renomeia licenças RIF simuladas como livres para melhorar a compatibilidade com HEN. Use se os PKGs funcionam apenas com Mira+HEN.",
     specificFW: "",
     category: "advanced",
     funcName: "load_RIFRenamer"
   },
   {
     id: "OnlineStoreInstall",
-    name: "Online Store Installer",
+    name: "Instalar Homebrew Store",
     author: "LightningMods",
-    description: "Online Installer for the PS4 Homebrew Store.<br>You need an internet connection to use this payload.",
+    description: "Instala a PS4 Homebrew Store.<br>É necessário estar conectado à internet.",
     specificFW: "",
     category: "homebrew",
     funcName: "load_onlineStoreInstaller"
   },
   {
     id: "ApolloSaveTool",
-    name: "Apollo-Save-Tool Installer",
+    name: "Instalar Apollo Save Tool",
     author: "Bucanero",
-    description: "Apollo Save Tool is an application to manage save-game files on the PlayStation 4.<br>You need an internet connection to use this payload.",
+    description: "Instala o Apollo Save Tool para gerenciar os arquivos de jogos salvos do PS4.<br>É necessário estar conectado à internet.",
     specificFW: "",
     category: "homebrew",
     funcName: "load_ApolloSaveTool"
   },
   {
     id: "ItemzFlow",
-    name: "Itemzflow Installer",
+    name: "Instalar Itemzflow",
     author: "LightningMods",
-    description: "Itemzflow is a Free and Open source PS4 home menu alternative Itemzflow expands the beyond limits of Sony's ShellUI.<br>You need an internet connection to use this payload.",
+    description: "Instala o Itemzflow, uma alternativa livre ao menu inicial do PS4.<br>É necessário estar conectado à internet.",
     specificFW: "",
     category: "homebrew",
     funcName: "load_Itemsflow"
   },
   {
     id: "PS4Xplorer2.0",
-    name: "PS4-File-Xplorer-2.08 Installer",
+    name: "Instalar PS4 Xplorer 2.08",
     author: "Lapy",
-    description: "A File Manager for the PlayStation 4 console.<br>You need an internet connection to use this payload.",
+    description: "Instala o gerenciador de arquivos PS4 Xplorer 2.08.<br>É necessário estar conectado à internet.",
     specificFW: "13.52",
     category: "homebrew",
     funcName: "load_PS4Xplorer"
