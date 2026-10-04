@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v3.1
+# XP PS4 v1.0 · 2026-10-03 · pt-BR e contatos
 # Generated on 2026-09-23
 
 CACHE:
@@ -58,22 +58,12 @@ CACHE:
 ../../../includes/payloads/Bins/db-rebuilder-v0.2.bin
 ../../../includes/payloads/Bins/ps4-rif-renamer.bin
 ../../../includes/payloads/Bins/ps4-websrv.bin
-../../../includes/payloads/Bins/ps4-southbridge-detector.bin
 ../../../includes/payloads/Bins/fan-thresholds/ps4-fan-threshold60.bin
 ../../../includes/payloads/Bins/fan-thresholds/ps4-fan-threshold70.bin
 ../../../includes/payloads/Bins/fan-thresholds/ps4-fan-threshold80.bin
 ../../../includes/payloads/Bins/fan-thresholds/ps4-fan-threshold85.bin
 ../../../includes/payloads/GoldHEN/goldhen_v2.4b18.12.bin
 ../../../includes/payloads/HEN/HEN.bin
-../../../includes/payloads/Linux/linux-1024mb.elf
-../../../includes/payloads/Linux/linux-128mb.elf
-../../../includes/payloads/Linux/linux-2048mb.elf
-../../../includes/payloads/Linux/linux-256mb.elf
-../../../includes/payloads/Linux/linux-3072mb.elf
-../../../includes/payloads/Linux/linux-32mb.elf
-../../../includes/payloads/Linux/linux-4096mb.elf
-../../../includes/payloads/Linux/linux-512mb.elf
-../../../includes/payloads/Linux/linux-64mb.elf
 ../../../src/relapse/core.js
 ../../../src/relapse/core.js?v=10
 ../../../src/relapse/int64.js
@@ -85,6 +75,14 @@ CACHE:
 ../../../src/relapse/patches/1302.bin
 ../../../src/relapse/patches/1350.bin
 ../../../src/relapse/patches/1352.bin
+
+../../../includes/assets/icons/xp-ps4-logo.png
+../../../includes/assets/icons/whatsapp-qr.png
+../../../includes/assets/icons/instagram-qr.png
+../../../includes/css/xp.css
+../../../includes/js/languages/pt-BR.js
+../../../includes/js/index-legacy.js
+../../../includes/js/iframe_cache.js
 
 NETWORK:
 *
