@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>WebKitty</title>
-    <meta name="description" content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 6.70 - 13.00." />
+    <title>XP Eletrônicos · PS4</title>
+    <meta name="description" content="Host de desbloqueio PS4 da XP Eletrônicos, para firmwares 6.70 a 13.52." />
     <meta name="author" content="ArabPixel">
     <meta name="keywords"
         content="PS4, PlayStation 4, webkit exploit, jailbreak, psfree lapse, cssfontface, WebKitty, PSFree Enhanced">
@@ -13,40 +13,41 @@
 
     <!-- Facebook / Discord / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="WebKitty">
+    <meta property="og:title" content="XP Eletrônicos · PS4">
     <meta property="og:description"
-        content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 6.70 - 13.52.">
-    <meta property="og:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
-    <meta property="og:url" content="http://webkitty.arabpixel.net">
+        content="Host de desbloqueio PS4 da XP Eletrônicos, para firmwares 6.70 a 13.52.">
+    <meta property="og:image" content="https://ps4.xpeletronicos.com/includes/assets/icons/xp-ps4-logo.png">
+    <meta property="og:url" content="http://ps4.xpeletronicos.com">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="WebKitty">
+    <meta name="twitter:title" content="XP Eletrônicos · PS4">
     <meta name="twitter:description"
-        content="WebKitty is a user-friendly, feature-rich PS4 exploit host for 6.70 - 13.52.">
-    <meta name="twitter:image" content="http://webkitty.arabpixel.net/includes/assets/icons/webkitty.svg">
-    <link rel="icon" href="includes/assets/icons/favicon.ico" type="image/x-icon">
+        content="Host de desbloqueio PS4 da XP Eletrônicos, para firmwares 6.70 a 13.52.">
+    <meta name="twitter:image" content="https://ps4.xpeletronicos.com/includes/assets/icons/xp-ps4-logo.png">
+    <link rel="icon" href="includes/assets/icons/xp-ps4-logo.png" type="image/png">
     <link rel="stylesheet" id="main-stylesheet" href="">
     <link rel="stylesheet" id="color-stylesheet" href="">
     <script>
         // Immediately redirect PS4 from HTTPS to HTTP before loading DOM or scripts
         if (window.location.protocol === 'https:' &&
-            window.location.hostname === 'webkitty.arabpixel.net' &&
+            window.location.hostname === 'ps4.xpeletronicos.com' &&
             navigator.userAgent.indexOf('PlayStation 4') !== -1) {
             window.abortLoading = true;
             window.location.replace(window.location.href.replace(/^https:/, 'http:'));
         }
 
-        // Prevent "Theme Flash" by applying the href before the body renders
-        var savedTheme = localStorage.getItem('theme') || "index";
+        // Prevent "Tema Flash" by applying the href before the body renders
+        var savedTema = localStorage.getItem('theme') || "index";
         var savedColor = localStorage.getItem('color') || "default";
-        if (savedTheme) {
-            document.getElementById('main-stylesheet').setAttribute('href', './includes/css/layouts/' + savedTheme + '.css');
+        if (savedTema) {
+            document.getElementById('main-stylesheet').setAttribute('href', './includes/css/layouts/' + savedTema + '.css');
         }
         if (savedColor) {
             document.getElementById('color-stylesheet').setAttribute('href', './includes/css/colors/' + savedColor + '.css');
         }
     </script>
+    <link rel="stylesheet" href="includes/css/xp.css">
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -58,7 +59,7 @@
                 <div>
                     <button onclick="settingsPopup()" id="settings-btn"
                         class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="Settings">
+                        title="Configurações">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-gear" viewBox="0 0 16 16">
                             <path
@@ -69,7 +70,7 @@
                     </button>
                     <button onclick="aboutPopup()" id="about-btn"
                         class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="About">
+                        title="Sobre">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             viewBox="0 0 512 512">
                             <path
@@ -78,7 +79,7 @@
                     </button>
                     <button onclick="themePopup()" id="theme-btn"
                         class="h-10 p-2 inline-flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                        title="Theme Customization">
+                        title="Personalização do tema">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
@@ -92,7 +93,7 @@
                 </div>
                 <button id="updateCache"
                     class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white">
-                    Update Cache
+                    Atualizar cache
                 </button>
             </header>
 
@@ -100,36 +101,28 @@
             <button id="pslogo">
                 <div id="ps-logo-container"
                     class="relative group cursor-pointer flex flex-col items-center justify-center p-8 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 transform hover:scale-102">
-                    <svg id="ps-logo" class="w-32 h-32 transition-all duration-500 ease-in-out" viewBox="0 0 32 32"
-                        fill="#3B82F6" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M0.69116 21.9548C-0.506476 22.7935 -0.284724 24.2384 2.44769 25.1419C5.18011 26.0455 8.35603 26.2323 11.1505 25.729C11.0707 25.729 11.3102 25.729 11.1505 25.729V22.8774L8.43588 23.8C7.39792 24.1355 6.35997 24.2194 5.32202 23.9677C4.5236 23.7161 4.68328 23.2129 5.64139 22.7935L11.1505 20.7806V17.6774L3.48565 20.4452C2.52754 20.7806 1.56943 21.2839 0.69116 21.9548ZM19.2146 9.37419V17.5097C22.4881 19.1871 25.0431 17.5097 25.0431 13.1484C25.0431 8.70323 23.5261 6.69032 19.1348 5.09677C16.8193 4.25806 14.4241 3.50323 12.0288 3V27.2387L17.6178 29V8.61935C17.6178 7.69677 17.6178 7.02581 18.2565 7.27742C19.1348 7.52903 19.2146 8.45161 19.2146 9.37419ZM29.5941 20.0258C27.2787 19.1871 24.8036 18.8516 22.4083 19.1032C21.0779 19.1906 19.8294 19.5869 18.5759 20.0258V23.2968L23.7656 21.2839C24.8036 20.9484 25.8415 20.8645 26.8795 21.1161C27.6779 21.3677 27.5182 21.871 26.5601 22.2903L18.5759 25.3935V28.5806L29.5941 24.3032C30.3925 23.9677 31.1111 23.5484 31.7499 22.8774C32.3088 22.0387 32.0692 20.8645 29.5941 20.0258Z">
-                            </path>
-                        </g>
-                    </svg>
+                    <img id="ps-logo" src="includes/assets/icons/xp-ps4-logo.png" width="256" height="256" alt="XP Eletrônicos — desbloqueio PS4">
                 </div>
             </button>
             <h3 class="text-white/70 text-lg mt-4" id="click-to-start-text"></h3>
             <button onclick="clearInterval(autoJbInterval);"
                 class="hidden mt-2 bg-red-600 hover:bg-red-700 p-3 rounded font-semibold transition-colors"
                 id="stopAutoJb">
-                Stop Auto Jailbreak
+                Parar tentativas automáticas
             </button>
 
             <!-- Compatibility message -->
             <p id="PS4FW" class="text-white/70 text-lg mt-4 mb-6">-</p>
             <a hidden
                 class="secondHostBtn bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center"
-                href="http://webkitty.arabpixel.net/" style="text-decoration: none;">
+                href="http://ps4.xpeletronicos.com/" style="text-decoration: none;">
                 <button
-                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Load
-                    payloads using GoldHEN's PayLoader - External link</button>
+                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Usar o PayLoader do GoldHEN por HTTP</button>
             </a>
 
             <!-- Jailbreak flavor options -->
             <div id="choosejb-initial" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-sm text-center">
-                <h3 class="text-xl font-semibold mb-4">Choose your HEN flavor</h3>
+                <h3 class="text-xl font-semibold mb-4">Escolha seu HEN</h3>
                 <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 rtl:gap-4 sm:rtl:gap-8">
                     <label
                         class="flex items-center px-4 py-2 rounded-lg bg-gray-700/60 hover:bg-gray-700 transition-colors cursor-pointer shadow border-2 border-transparent focus-within:border-blue-500 w-full sm:w-auto mb-2 sm:mb-0"
@@ -147,6 +140,19 @@
                 </div>
             </div>
 
+
+            <aside class="xp-contact" aria-label="Contatos da XP Eletrônicos">
+                <div class="xp-contact-item">
+                    <img src="includes/assets/icons/whatsapp-qr.png" width="132" height="132" alt="QR code do WhatsApp da XP Eletrônicos">
+                    <strong>WhatsApp</strong><span>+55 61 99514-9019</span>
+                </div>
+                <div class="xp-contact-item">
+                    <img src="includes/assets/icons/instagram-qr.png" width="132" height="132" alt="QR code do Instagram da XP Eletrônicos">
+                    <strong>Instagram</strong><span>@eletronicos.xp</span>
+                </div>
+                <p>Escaneie com a câmera do celular</p>
+            </aside>
+
             <!-- Scroll Down Icon -->
             <button id="scrollDown" class="absolute bottom-10 cursor-pointer"
                 onclick="ui.exploitScreen.scrollIntoView({block: 'end'});">
@@ -162,7 +168,7 @@
                 <!-- Exploit console panel -->
                 <div id="exploit-status-panel" class="gap-4 bg-gray-800 p-6 rounded-lg flex flex-col h-full w-full">
                     <div class="flex justify-between w-auto" style="align-items: baseline;">
-                        <h2 class="text-xl font-semibold mb-4" id="state">Exploit status</h2>
+                        <h2 class="text-xl font-semibold mb-4" id="state">Status do desbloqueio</h2>
                         <button id="successRate" style="white-space: nowrap;"
                             class="text-base font-semibold duration-300 transform hover:scale-102 hover:border-bottom cursor-pointer"
                             onclick="clearStats()">
@@ -210,7 +216,7 @@
                             <header class="flex space-x-3 rtl:space-x-reverse hidden" id="header2">
                                 <button onclick="settingsPopup()" id="settings-btn"
                                     class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="Settings">
+                                    title="Configurações">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                                         class="bi bi-gear" viewBox="0 0 16 16">
                                         <path
@@ -221,7 +227,7 @@
                                 </button>
                                 <button onclick="aboutPopup()" id="about-btn"
                                     class="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="About">
+                                    title="Sobre">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                                         viewBox="0 0 512 512">
                                         <path
@@ -230,7 +236,7 @@
                                 </button>
                                 <button onclick="themePopup()" id="theme-btn"
                                     class="h-10 p-2 inline-flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-white/80 hover:text-white"
-                                    title="Theme Customization">
+                                    title="Personalização do tema">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -247,11 +253,11 @@
                         <div class="flex items-center flex-col gap-2">
                             <input type="text" id="ps4IpInput"
                                 class="hidden bg-blue-600 hover:bg-blue-700 p-1 rounded font-semibold transition-colors text-white border-transparent text-center"
-                                placeholder="PS4 IP Address">
+                                placeholder="Endereço IP do PS4">
                             <select style="background: transparent;" id="ps4FwSelect"
                                 class="hidden p-1 text-center rounded font-semibold transition-colors text-white">
-                                <option selected hidden>PS4 FW</option>
-                                <option value="lower">Lower</option>
+                                <option selected hidden>Firmware do PS4</option>
+                                <option value="lower">Inferior</option>
                                 <option value="6.00">6.00</option>
                                 <option value="6.02">6.02</option>
                                 <option value="6.20">6.20</option>
@@ -304,30 +310,25 @@
                             <li class="flex-1" role="presentation">
                                 <button class="w-full inline-block p-4 border-b-2 rounded-t-lg" id="tools-tab"
                                     data-tabs-target="#tools" type="button" role="tab" aria-controls="tools"
-                                    aria-selected="false">Tools</button>
+                                    aria-selected="false">Ferramentas</button>
                             </li>
                             <li class="flex-1" role="presentation">
                                 <button class="w-full inline-block p-4 border-b-2 rounded-t-lg" id="homebrew-tab"
                                     data-tabs-target="#homebrew" type="button" role="tab" aria-controls="homebrew"
                                     aria-selected="false">Homebrew</button>
                             </li>
-                            <li class="flex-1" role="presentation">
-                                <button
-                                    class="w-full inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 hover:text-gray-300"
-                                    id="linux-tab" data-tabs-target="#linux" type="button" role="tab"
-                                    aria-controls="linux" aria-selected="false">Linux</button>
-                            </li>
+
                             <li class="hidden flex-1 advancedPayloadsTab" role="presentation">
                                 <button
                                     class="w-full inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 hover:text-gray-300"
                                     id="advanced-tab" data-tabs-target="#advanced" type="button" role="tab"
-                                    aria-controls="advanced" aria-selected="false">Advanced</button>
+                                    aria-controls="advanced" aria-selected="false">Avançados</button>
                             </li>
                             <li class="hidden flex-1 customPayloadsTab" role="presentation">
                                 <button
                                     class="w-full inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 hover:text-gray-300"
                                     id="custom-tab" data-tabs-target="#custom" type="button" role="tab"
-                                    aria-controls="custom" aria-selected="false">Custom</button>
+                                    aria-controls="custom" aria-selected="false">Personalizado</button>
                             </li>
                         </ul>
                     </div>
@@ -340,15 +341,13 @@
                             <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="homebrew" role="tabpanel"
                                 aria-labelledby="homebrew-tab">
                             </div>
-                            <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="linux" role="tabpanel"
-                                aria-labelledby="linux-tab">
-                            </div>
+
                             <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="advanced" role="tabpanel"
                                 aria-labelledby="advanced-tab">
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="custom" role="tabpanel"
                                 aria-labelledby="custom-tab">
-                                <p class="text-sm text-white/80 mb-2">Upload a custom payload file.</p>
+                                <p class="text-sm text-white/80 mb-2">Selecione um arquivo de payload personalizado.</p>
                                 <div class="flex gap-2">
                                     <input type="file" id="customPayloadInput" style="width: 150px;"
                                         class="bg-gray-700 p-2 rounded flex-grow text-white border-transparent focus:ring-2 focus:ring-blue-500"
@@ -369,10 +368,9 @@
                     </div>
                     <a hidden
                         class="secondHostBtn w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center"
-                        href="http://webkitty.arabpixel.net/" style="text-decoration: none;">
+                        href="http://ps4.xpeletronicos.com/" style="text-decoration: none;">
                         <button
-                            class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Load
-                            payloads using GoldHEN's PayLoader - External link</button>
+                            class="w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold disabled:opacity-50 transition-colors text-white text-center">Usar o PayLoader do GoldHEN por HTTP</button>
                     </a>
                 </div>
             </div>
@@ -384,14 +382,14 @@
     <div class="fixed inset-0 bg-black/50 z-50 flex backdrop-blur-sm items-center justify-center p-4 hidden"
         id="about-popup-overlay">
         <div id="about-popup" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h2 class="text-2xl font-bold">About WebKitty</h2>
+            <h2 class="text-2xl font-bold">Sobre XP Eletrônicos · PS4</h2>
             <div class="space-y-2 text-white/80">
-                <p>Version: 2.0</p>
-                <p>A feature rich exploit host to jailbreak your PS4</p>
-                <p>Hosted on GitHub</p>
+                <p>Versão XP: 1.0 · WebKitty 2.0</p>
+                <p>Interface da XP Eletrônicos para desbloquear seu PS4, baseada no WebKitty.</p>
+                <p>Hospedado pela XP Eletrônicos</p>
             </div>
             <div id="PS4FWOK" class="mt-4">
-                <h3 class="text-l font-bold mb-4">Supported PS4 firmware</h3>
+                <h3 class="text-l font-bold mb-4">Firmwares de PS4 compatíveis</h3>
                 <div id="listfw" class="grid-cols-4 text-sm text-white/70 mb-4">
                     <p id="fw67">6.7x</p>
                     <p id="fw7">7.xx</p>
@@ -404,9 +402,10 @@
                 </div>
             </div>
             <small id="goldhenFirmwareSemiSupported">
-                <i class="text-white/70">* Loading payloads through GoldHEN's PayLoader is supported.</i>
+                <i class="text-white/70">* O envio de payloads pelo PayLoader do GoldHEN é compatível.</i>
             </small>
-            <h3 class="text-l font-bold mt-4 mb-2" id="creditsHeader">Credits</h3>
+            <p class="xp-source"><a href="https://github.com/VictorRodriguesS0/goldhen" target="_blank" rel="noopener noreferrer">Código-fonte · AGPL-3.0</a> · Base: WebKitty / ArabPixel</p>
+            <h3 class="text-l font-bold mt-4 mb-2" id="creditsHeader">Créditos</h3>
             <div class="flex flex-wrap justify-evenly text-sm text-white/70 mb-2">
                 <p>abc</p>
                 <p>sleirsgoevy</p>
@@ -430,12 +429,12 @@
                 <p>ArabPixel</p>
                 <p>Dr.Yenyen</p>
                 <p>Teligin174</p>
-                <p>Payloads' devs</p>
+                <p>Desenvolvedores dos payloads</p>
             </div>
 
             <button onclick="aboutPopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-about">Close</button>
+                id="close-about">Fechar</button>
         </div>
     </div>
 
@@ -444,18 +443,18 @@
         id="settings-popup-overlay">
         <div id="settings-popup"
             class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <h2 class="text-2xl font-bold mb-4">WebKitty settings</h2>
+            <h2 class="text-2xl font-bold mb-4">Configurações</h2>
             <!-- Choose GoldHEN version -->
             <div id="chooseGoldHEN" class="mb-4">
-                <h3 class="text-lg font-semibold mb-2" id="ghVer">GoldHEN versions</h3>
+                <h3 class="text-lg font-semibold mb-2" id="ghVer">Versões do GoldHEN</h3>
                 <div class="radio-group space-y-2">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="goldhen" value="GHv2.4b18.12" onchange="setGoldHENVer(this.value);">
                         <p>GoldHEN v2.4b18.12 - </p>
-                        <pre id="latestVer"> Latest</pre>
+                        <pre id="latestVer"> Mais recente</pre>
                     </label>
                     <details>
-                        <summary>Other versions</summary>
+                        <summary>Outras versões</summary>
                         <label class="flex items-center text-white/80">
                             <input type="radio" name="goldhen" value="GHv2.4b18.10"
                                 onchange="setGoldHENVer(this.value);">
@@ -485,7 +484,7 @@
                 </div>
             </div>
             <div id="chooseExploitChain" class="mb-4">
-                <h3 class="text-lg font-semibold mb-2" id="exploitChainTitle">Exploit Chain</h3>
+                <h3 class="text-lg font-semibold mb-2" id="exploitChainTitle">Método de desbloqueio</h3>
                 <div class="radio-group space-y-2 flex flex-wrap">
                     <label class="flex items-center text-white/80" id="modularLapseExp">
                         <input type="radio" name="exploitChain" value="0" onchange="exploitChain(this.value);">
@@ -493,7 +492,7 @@
                     </label>
                     <label class="flex items-center text-white/80" id="bundleLapseExp">
                         <input type="radio" name="exploitChain" value="1" onchange="exploitChain(this.value);">
-                        <p id="bundleLapse">PSFree Lapse Bundle</p>
+                        <p id="bundleLapse">PSFree Lapse integrado</p>
                     </label>
                     <label class="flex items-center text-white/80" id="badHoistExp">
                         <input type="radio" name="exploitChain" value="2" onchange="exploitChain(this.value);">
@@ -522,51 +521,55 @@
                 </div>
             </div>
             <div id="advancedPayloads" class="mb-6">
-                <h3 class="text-lg font-semibold mb-2" id="optionsHeader">Options</h3>
+                <h3 class="text-lg font-semibold mb-2" id="optionsHeader">Opções</h3>
                 <div class="radio-group flex flex-wrap mb-4">
                     <label class="flex items-center text-white/80">
                         <input type="checkbox" id="advancedPayloadsInput" onclick="setAdvancedPayloads(this.checked)">
-                        <p id="showAdvancedPayloads">Show Advanced Payloads</p>
+                        <p id="showAdvancedPayloads">Mostrar payloads avançados</p>
                     </label>
                 </div>
                 <label id="autoJbContainer" class="flex items-center text-white/80">
                     <input type="checkbox" id="autoJbRetry" onclick="setAutoJbRetry(this.checked)">
-                    <p id="autoJbRetryText">Auto-Retry Jailbreak</p>
+                    <p id="autoJbRetryText">Repetir o desbloqueio automaticamente</p>
                 </label>
                 <label id="reloadAfterJb" class="flex items-center text-white/80">
                     <input type="checkbox" id="reloadAfterJbInput" onclick="setReloadAfterJb(this.checked)">
-                    <p id="reloadAfterJbText">Reload After a successful Jailbreak</p>
+                    <p id="reloadAfterJbText">Recarregar após concluir o desbloqueio</p>
                 </label>
                 <label id="bareboneJBOption" class="flex items-center text-white/80">
                     <input type="checkbox" id="bareboneJBInput" onclick="setBareboneJB(this.checked)">
-                    <p id="bareboneJB">Barebone Jailbreak Experience</p>
+                    <p id="bareboneJB">Modo de desbloqueio simplificado</p>
                 </label>
             </div>
             <button onclick="ipGuess()"
                 class="hidden bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
                 id="scanPayLoader">
-                Scan for GoldHEN's PayLoader
+                Buscar o PayLoader do GoldHEN
             </button>
             <button onclick="shutdownServer()"
                 class="hidden mt-2 bg-red-600 hover:bg-red-700 p-3 rounded font-semibold transition-colors"
                 id="shutdownServerBtn">
-                Shutdown Server
+                Encerrar servidor do PS4
             </button>
             <button onclick="settingsPopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-settings">Close</button>
+                id="close-settings">Fechar</button>
         </div>
     </div>
 
     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden"
         id="theme-popup-overlay">
         <div id="theme-popup" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <h2 class="text-2xl font-bold mb-4">Customization Settings</h2>
+            <h2 class="text-2xl font-bold mb-4">Personalização</h2>
             <!-- Language chooser -->
             <div id="chooselang" class="mb-6">
-                <h3 class="text-lg font-semibold mb-2">Language</h3>
+                <h3 class="text-lg font-semibold mb-2">Idioma</h3>
                 <div class="radio-group space-y-2 flex flex-wrap">
                     <!-- Language options -->
+                    <label class="flex items-center text-white/80">
+                        <input type="radio" name="language" value="pt-BR" class="ml-2" onchange="saveLanguage(this.value);">
+                        <p>Português (Brasil)</p>
+                    </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="language" value="en" class="ml-2"
                             onchange="saveLanguage(this.value);">
@@ -609,23 +612,23 @@
                 <div class="radio-group space-y-2 flex flex-wrap flex-row" id="layouts">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="theme" value="index" onchange="setTheme(this.value);">
-                        <p id="defaultTheme">Default</p>
+                        <p id="defaultTheme">Padrão</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="theme" value="compact" onchange="setTheme(this.value);">
-                        <p id="compactTheme">Compact</p>
+                        <p id="compactTheme">Compacto</p>
                     </label>
                 </div>
                 <!-- Color  -->
-                <h3 class="text-lg font-semibold mb-2" id="themeWord">Theme</h3>
+                <h3 class="text-lg font-semibold mb-2" id="themeWord">Tema</h3>
                 <div class="radio-group space-y-2 flex flex-wrap" id="colors">
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="colorTheme" value="default" onchange="setColors(this.value);">
-                        <p id="defaultColor">Default</p>
+                        <p id="defaultColor">Padrão</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="colorTheme" value="vibrant" onchange="setColors(this.value);">
-                        <p id="vibrantColor">Vibrant</p>
+                        <p id="vibrantColor">Vibrante</p>
                     </label>
                     <label class="flex items-center text-white/80">
                         <input type="radio" name="colorTheme" value="catppuccino" onchange="setColors(this.value);">
@@ -635,19 +638,19 @@
             </div>
             <button onclick="themePopup()"
                 class="mt-6 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
-                id="close-theme">Close</button>
+                id="close-theme">Fechar</button>
         </div>
     </div>
 
     <div class="fixed inset-0 bg-black/50 z-50 flex backdrop-blur-sm items-center justify-center p-4 hidden"
         id="choose-fanThreshold-overlay">
         <div id="choose-fanThreshold" class="bg-gray-800 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h2 class="text-2xl font-bold mb-4">Fan Threshold</h2>
+            <h2 class="text-2xl font-bold mb-4">Temperatura da ventoinha</h2>
             <div class="space-y-2 text-white/80">
-                <p>Sets the temperature threshold where the fan will kick into turbo.</p>
+                <p>Define a temperatura em que a ventoinha aumenta a velocidade.</p>
             </div>
             <div class="mt-6">
-                <h3 class="text-l font-bold mb-4">Select a temperature</h3>
+                <h3 class="text-l font-bold mb-4">Selecione uma temperatura</h3>
                 <div class="flex justify-around gap-2 text-sm text-white/70 w-full">
                     <button class="mt-6 hover:bg-blue-700 p-3 rounded font-semibold transition-colors" id="60"
                         onclick="Loadpayloads('load_FanThreshold');sessionStorage.setItem('fanTemp', this.id);">60°C</button>
@@ -662,12 +665,12 @@
 
             <div id="defaultTempDiv" class="flex justify-center gap-2 flex-col">
                 <small class="text-center">&#8593;</small>
-                <small class="text-center" id="defaultTemp">Default</small>
+                <small class="text-center" id="defaultTemp">Padrão</small>
             </div>
             <button onclick="chooseFanThreshold()"
                 class="mt-4 w-full bg-blue-600 hover:bg-blue-700 p-3 rounded font-semibold transition-colors"
                 id="close-fanChoose">
-                Close</button>
+                Fechar</button>
         </div>
     </div>
 
@@ -676,7 +679,7 @@
         window.onerror = function (msg, url, lineno, colno, error) {
             const stack = error.stack || 'No stack trace';
             console.error('[onerror]', { msg, url, lineno, colno, stack });
-            alert(`Error: ${msg}\nURL: ${url}\nLine: ${lineno}, Col: ${colno}\n\nOpen an issue on github or contact me on discord '@arabpixel'`);
+            alert(`Erro: ${msg}\nURL: ${url}\nLinha: ${lineno}, coluna: ${colno}\n\nAnote o erro e entre em contato com a XP Eletrônicos.`);
             return true;
         };
 
@@ -687,7 +690,7 @@
                 ? `${reason.message}\n\nStack:\n${reason.stack}`
                 : String(reason);
             console.error('[unhandledrejection]', reason);
-            alert(`Unhandled Promise Rejection:\n${msg}\n\nOpen an issue on github or contact me on discord '@arabpixel'`);
+            alert(`Erro em operação assíncrona:\n${msg}\n\nAnote o erro e entre em contato com a XP Eletrônicos.`);
         });
 
 
@@ -721,6 +724,7 @@
             }
         });
     </script>
+    <script src="./includes/js/language.js"></script>
     <!-- Choose index.js or index-legacy.js for older browsers, generated with Babel -->
     <script id="main-logic-loader">
         (function () {
@@ -732,7 +736,6 @@
     <script src="./includes/payloads/payloads.js"></script>
     <script src="./includes/js/payloadsList.js"></script>
     <script src="./includes/js/design.js"></script>
-    <script src="./includes/js/language.js"></script>
     <script src="./includes/js/HENs.js"></script>
     <script src="./includes/js/checkFw.js"></script>
     <script src="./includes/js/cache.js"></script>
