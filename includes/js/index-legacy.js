@@ -6,7 +6,7 @@ function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 // @ts-nocheck
 var user = {
-  currentLanguage: localStorage.getItem('language') || 'en',
+  currentLanguage: getPreferredLanguage(),
   currentJbFlavor: localStorage.getItem('jailbreakFlavor') || 'GoldHEN',
   platform: "PS4",
   // PS4/PC/Mobile etc..
@@ -29,7 +29,7 @@ var devMode = false; // Dev mode for PC debugging
 var rtlLangs = ["ar", "fa"];
 var webKitMin = 6.70;
 var webKitMax = 13.52;
-var projectName = "WebKitty";
+var projectName = "XP Eletrônicos · PS4";
 var ui = {
   mainContainer: document.querySelector('.mainContainer'),
   // Sections
@@ -50,8 +50,6 @@ var ui = {
   toolsTab: document.getElementById('tools-tab'),
   homebrewSection: document.getElementById("homebrew"),
   homebrewTab: document.getElementById("homebrew-tab"),
-  linuxSection: document.getElementById('linux'),
-  linuxTab: document.getElementById('linux-tab'),
   advancedPayloadsSection: document.getElementById('advanced'),
   advancedPayloadsTab: document.getElementById('advanced-tab'),
   advancedPayloadsContainer: document.querySelector('.advancedPayloadsTab'),
@@ -158,7 +156,7 @@ function _jailbreak() {
           relapseJailbreak();
           return _context.a(3, 9);
         case 8:
-          log("Error: Invalid exploit chain selected", "red");
+          log("Erro: método de desbloqueio inválido", "red");
         case 9:
           return _context.a(2);
       }
@@ -180,7 +178,7 @@ function _psfreeLapse() {
             break;
           }
           _context2.p = 1;
-          log("Loading Al-Azif's PSFree Lapse Modular implementation..");
+          log("Carregando PSFree Lapse modular de Al-Azif...");
           _context2.n = 2;
           return getScript('./src/psfree-lapse/alert.mjs');
         case 2:
@@ -189,13 +187,13 @@ function _psfreeLapse() {
         case 3:
           _context2.p = 3;
           _t2 = _context2.v;
-          log("alert.mjs is not defined", "red");
+          log("alert.mjs não está definido", "red");
         case 4:
           _context2.n = 9;
           break;
         case 5:
           // bundle lapse
-          log("Loading Feyzee61's PSFree Lapse Bundle implementation..");
+          log("Carregando PSFree Lapse integrado de Feyzee61...");
           _context2.p = 6;
           _context2.n = 7;
           return loadScript('./src/psfree-lapse/bundle.js');
@@ -203,14 +201,14 @@ function _psfreeLapse() {
           if (typeof doJailBreak === "function") {
             doJailBreak();
           } else {
-            log("Error: doJailBreak is not defined", "red");
+            log("Erro: doJailBreak não está definido", "red");
           }
           _context2.n = 9;
           break;
         case 8:
           _context2.p = 8;
           _t3 = _context2.v;
-          log("Failed to load bundle script: " + _t3.message, "red");
+          log("Falha ao carregar script integrado: " + _t3.message, "red");
         case 9:
           return _context2.a(2);
       }
@@ -227,7 +225,7 @@ function _badHoistJailbreak() {
     return _regenerator().w(function (_context3) {
       while (1) switch (_context3.n) {
         case 0:
-          log("Initializing Exploit...");
+          log("Iniciando desbloqueio...");
           jailbreakNow = sessionStorage.getItem('jailbreakNow') == null;
           if (!jailbreakNow) {
             _context3.n = 1;
@@ -242,25 +240,25 @@ function _badHoistJailbreak() {
             _context3.n = 3;
             break;
           }
-          log("An error occured during Bad Hoist Entrypoint\nRetrying..", "orange");
+          log("Erro ao iniciar Bad Hoist\nTentando novamente...", "orange");
           _context3.n = 2;
           return sleep(2000);
         case 2:
           location.reload();
           return _context3.a(2);
         case 3:
-          log("Bad Hoist Entrypoint succeeded");
+          log("Bad Hoist iniciado com sucesso");
         case 4:
           if (!(window.exploitsetup672_result < 1)) {
             _context3.n = 5;
             break;
           }
-          log("An error occured during Exploit Setup\nPlease refresh page and try again...", "red");
+          log("Erro ao preparar desbloqueio\nAtualize a página e tente novamente...", "red");
           return _context3.a(2);
         case 5:
-          log("Exploit Setup complete\n");
+          log("Preparação concluída\n");
         case 6:
-          log("Starting Kernel Exploit...");
+          log("Iniciando desbloqueio do kernel...");
           _context3.n = 7;
           return sleep(200);
         case 7:
@@ -269,18 +267,18 @@ function _badHoistJailbreak() {
         case 8:
           result = KernelExploit672();
           if (result === 0 || result === 91) {
-            log("\nKernel exploit succeeded", "green");
+            log("\nDesbloqueio do kernel concluído", "green");
             // Inject HEN payload
             getPayload672(sessionStorage.getItem('payload_path'));
             log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
-            log("Implementation taken from Feyzee61");
+            log("Implementação de Feyzee61");
             jailbreakSuccess();
           } else if (result === 179) {
             getPayload672(sessionStorage.getItem('payload_path'));
-            log("\nAlready jailbroken, skipping..", "green");
+            log("\nPS4 já desbloqueado, continuando...", "green");
             jailbreakSuccess();
           } else {
-            log("\nAn error occured during Kernel Exploit\nPlease restart console and try again...", "red");
+            log("\nErro no desbloqueio do kernel\nReinicie o console e tente novamente...", "red");
           }
         case 9:
           return _context3.a(2);
@@ -297,7 +295,7 @@ function _cssFontFaceJailbreak() {
     return _regenerator().w(function (_context4) {
       while (1) switch (_context4.n) {
         case 0:
-          log("Loading ufm42's CSSFontFace exploit chain implementation..");
+          log("Carregando CSSFontFace de ufm42...");
           _context4.n = 1;
           return getScript('src/cssfontface/main.js');
         case 1:
@@ -318,7 +316,7 @@ function _slopKit() {
     return _regenerator().w(function (_context5) {
       while (1) switch (_context5.p = _context5.n) {
         case 0:
-          log("Loading Raw-Game's SlopKit exploit chain implementation..");
+          log("Carregando SlopKit de Raw Game...");
           _context5.p = 1;
           if (!(user.exploitChain === 6)) {
             _context5.n = 3;
@@ -355,7 +353,7 @@ function _relapseJailbreak() {
     return _regenerator().w(function (_context6) {
       while (1) switch (_context6.p = _context6.n) {
         case 0:
-          log("Loading Raw Game's Relapse exploit chain implementation..");
+          log("Carregando Relapse de Raw Game...");
           _context6.p = 1;
           _context6.n = 2;
           return getScript("src/relapse/jb.js?v=10", true);
@@ -431,7 +429,7 @@ function _loadSettings() {
         case 2:
           _context8.p = 2;
           _t7 = _context8.v;
-          alert("Error in loadSettings: " + _t7.message);
+          alert("Erro ao carregar configurações: " + _t7.message);
         case 3:
           return _context8.a(2);
       }
