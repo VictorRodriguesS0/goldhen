@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "build": "babel includes/js/index.js --out-file includes/js/index-legacy.js --presets=@babel/preset-env",
-    "watch": "babel includes/js/index.js --out-file includes/js/index-legacy.js --presets=@babel/preset-env --watch"
+    "watch": "babel includes/js/index.js --out-file includes/js/index-legacy.js --presets=@babel/preset-env --watch",
+    "test": "node tests/interface.test.cjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.1",
