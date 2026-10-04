@@ -9,24 +9,6 @@ const payloadsList = [
     funcName: "load_FTP"
   },
   {
-    id: "BinLoader",
-    name: "BinLoader",
-    author: "Exploit",
-    description: "Inicia o servidor BinLoader na porta 9020 para receber payloads .bin.",
-    specificFW: "7.00 - 9.60",
-    category: "tools",
-    funcName: "load_BinLoader"
-  },
-  {
-    id: "ElfLoader",
-    name: "ElfLoader",
-    author: "John T&#246;rnblom",
-    description: "Inicia o servidor ElfLoader na porta 9021 para receber payloads .elf.",
-    specificFW: "",
-    category: "tools",
-    funcName: "load_Elfldr"
-  },
-  {
     id: "DisableUpdates",
     name: "Desativar atualizações",
     author: "Scene Collective",
@@ -72,15 +54,6 @@ const payloadsList = [
     funcName: "load_npFakeSignin"
   },
   {
-    id: "OrbisToolbox",
-    name: "Orbis-Toolbox",
-    author: "OSM-Made",
-    description: "Modifica a interface do PlayStation para ajudar a executar e desenvolver homebrew.",
-    specificFW: "5.05, 6.72, 7.02, 7.55, 9.00",
-    category: "tools",
-    funcName: "load_Orbis"
-  },
-  {
     id: "BackupDB",
     name: "Backup dos dados",
     author: "Stooged",
@@ -115,24 +88,6 @@ const payloadsList = [
     specificFW: "",
     category: "tools",
     funcName: "load_ExitIDU"
-  },
-  {
-    id: "WebRTE",
-    name: "WebRTE",
-    author: "Criado por golden<br>atualizado por EchoStretch",
-    description: "Ferramenta de modificação de jogos em tempo real pela rede.",
-    specificFW: "5.05, 6.72, 7.00-11.00",
-    category: "tools",
-    funcName: "load_WebRTE"
-  },
-  {
-    id: "App2USB",
-    name: "App2USB",
-    author: "Stooged",
-    description: "Move os aplicativos instalados para uma unidade USB externa de forma não oficial.",
-    specificFW: "",
-    category: "tools",
-    funcName: "load_App2USB"
   },
   {
     id: "PS4Debug",
@@ -214,15 +169,6 @@ const payloadsList = [
     specificFW: "",
     category: "homebrew",
     funcName: "load_ApolloSaveTool"
-  },
-  {
-    id: "ItemzFlow",
-    name: "Instalar Itemzflow",
-    author: "LightningMods",
-    description: "Instala o Itemzflow, uma alternativa livre ao menu inicial do PS4.<br>É necessário estar conectado à internet.",
-    specificFW: "",
-    category: "homebrew",
-    funcName: "load_Itemsflow"
   },
   {
     id: "PS4Xplorer2.0",
