@@ -35,7 +35,7 @@ function guessIp() {
             if (inputIp !== 'localhost' && inputIp !== '127.0.0.1') {
                 findPs4FromBaseIP(inputIp);
             } else {
-                alert("Can't scan for ip since its not provided")
+                alert("Informe o endereço IP do PS4 antes de buscar o PayLoader.")
             }
             // PC browsing a PC-hosted site.
             // Cant scan for a PayLoader server because we only have localhost or 127.0.0.1
