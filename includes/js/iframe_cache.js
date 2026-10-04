@@ -3,7 +3,7 @@
 (function () {
     var appCache = window.applicationCache;
     if (!appCache) {
-        window.parent.postMessage({ type: 'CACHE_ERROR', reason: 'applicationCache not supported' }, '*');
+        window.parent.postMessage({ type: 'CACHE_ERROR', reason: 'applicationCache não é compatível' }, '*');
         return;
     }
 
@@ -40,7 +40,7 @@
         var statusName = statusNames[status] || ('status=' + status);
         window.parent.postMessage({
             type: 'CACHE_ERROR',
-            reason: 'AppCache error event fired. Status was: ' + statusName
+            reason: 'Erro no AppCache. Status: ' + statusName
         }, '*');
     }, false);
 })();
