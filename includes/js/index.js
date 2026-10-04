@@ -1,6 +1,6 @@
 // @ts-nocheck
 var user = {
-  currentLanguage: localStorage.getItem('language') || 'en',
+  currentLanguage: getPreferredLanguage(),
   currentJbFlavor: localStorage.getItem('jailbreakFlavor') || 'GoldHEN',
   platform: "PS4", // PS4/PC/Mobile etc..
   lastTab: localStorage.getItem('lastTab') || 'tools',
@@ -20,7 +20,7 @@ var rtlLangs = ["ar", "fa"];
 
 const webKitMin = 6.70;
 const webKitMax = 13.52;
-const projectName = "WebKitty";
+const projectName = "XP Eletrônicos · PS4";
 
 const ui = {
   mainContainer: document.querySelector('.mainContainer'),
@@ -45,8 +45,6 @@ const ui = {
   toolsTab: document.getElementById('tools-tab'),
   homebrewSection: document.getElementById("homebrew"),
   homebrewTab: document.getElementById("homebrew-tab"),
-  linuxSection: document.getElementById('linux'),
-  linuxTab: document.getElementById('linux-tab'),
   advancedPayloadsSection: document.getElementById('advanced'),
   advancedPayloadsTab: document.getElementById('advanced-tab'),
   advancedPayloadsContainer: document.querySelector('.advancedPayloadsTab'),
@@ -137,7 +135,7 @@ async function jailbreak() {
       relapseJailbreak();
       break;
     default:
-      log("Error: Invalid exploit chain selected", "red");
+      log("Erro: método de desbloqueio inválido", "red");
   }
 }
 
@@ -145,30 +143,30 @@ async function psfreeLapse() {
   // Exploit chain method check
   if (user.exploitChain == 0) { // modular lapse
     try {
-      log("Loading Al-Azif's PSFree Lapse Modular implementation..");
+      log("Carregando PSFree Lapse modular de Al-Azif...");
       await getScript('./src/psfree-lapse/alert.mjs');
     } catch (e) {
-      log("alert.mjs is not defined", "red");
+      log("alert.mjs não está definido", "red");
     }
   } else { // bundle lapse
-    log("Loading Feyzee61's PSFree Lapse Bundle implementation..");
+    log("Carregando PSFree Lapse integrado de Feyzee61...");
     try {
       await loadScript('./src/psfree-lapse/bundle.js');
 
       if (typeof doJailBreak === "function") {
         doJailBreak();
       } else {
-        log("Error: doJailBreak is not defined", "red");
+        log("Erro: doJailBreak não está definido", "red");
       }
     } catch (e) {
-      log("Failed to load bundle script: " + e.message, "red");
+      log("Falha ao carregar script integrado: " + e.message, "red");
     }
   }
 }
 
 // Taken from Feyzee61 ps4jb
 async function badHoistJailbreak() {
-  log("Initializing Exploit...");
+  log("Iniciando desbloqueio...");
   var jailbreakNow = sessionStorage.getItem('jailbreakNow') == null;
   if (jailbreakNow) {
     // set jailbreakNow to true, on reload to load userland exploit
@@ -177,51 +175,51 @@ async function badHoistJailbreak() {
     return;
   }
   if (window.entrypoint672_result < 1) {
-    log("An error occured during Bad Hoist Entrypoint\nRetrying..", "orange");
+    log("Erro ao iniciar Bad Hoist\nTentando novamente...", "orange");
     await sleep(2000);
     location.reload();
     return;
   }
   else
-    log("Bad Hoist Entrypoint succeeded");
+    log("Bad Hoist iniciado com sucesso");
   if (window.exploitsetup672_result < 1) {
-    log("An error occured during Exploit Setup\nPlease refresh page and try again...", "red");
+    log("Erro ao preparar desbloqueio\nAtualize a página e tente novamente...", "red");
     return;
   }
   else
-    log("Exploit Setup complete\n");
-  log("Starting Kernel Exploit...");
+    log("Preparação concluída\n");
+  log("Iniciando desbloqueio do kernel...");
   await sleep(200); // Wait 200ms
 
   await loadScript('./src/badhoist/672kexploit.js');
   var result = KernelExploit672();
 
   if (result === 0 || result === 91) {
-    log("\nKernel exploit succeeded", "green");
+    log("\nDesbloqueio do kernel concluído", "green");
     // Inject HEN payload
     getPayload672(sessionStorage.getItem('payload_path'));
 
     log("\nBad Hoist by Fire30, 6.7x Kernel Exploit by Sleirsgoevy");
-    log("Implementation taken from Feyzee61");
+    log("Implementação de Feyzee61");
     jailbreakSuccess();
   } else if (result === 179) {
     getPayload672(sessionStorage.getItem('payload_path'));
 
-    log("\nAlready jailbroken, skipping..", "green");
+    log("\nPS4 já desbloqueado, continuando...", "green");
     jailbreakSuccess();
   } else {
-    log("\nAn error occured during Kernel Exploit\nPlease restart console and try again...", "red");
+    log("\nErro no desbloqueio do kernel\nReinicie o console e tente novamente...", "red");
   }
 }
 
 async function cssFontFaceJailbreak() {
-  log("Loading ufm42's CSSFontFace exploit chain implementation..");
+  log("Carregando CSSFontFace de ufm42...");
   await getScript('src/cssfontface/main.js');
   doCssFontFaceJailbreak();
 }
 
 async function slopKit() {
-  log("Loading Raw-Game's SlopKit exploit chain implementation..");
+  log("Carregando SlopKit de Raw Game...");
   try {
     if (user.exploitChain === 6) {
       await getScript("src/slopkit/chain_poops.js", true);
@@ -235,7 +233,7 @@ async function slopKit() {
 }
 
 async function relapseJailbreak() {
-  log("Loading Raw Game's Relapse exploit chain implementation..");
+  log("Carregando Relapse de Raw Game...");
   try {
     await getScript("src/relapse/jb.js?v=10", true);
   } catch (error) {
@@ -271,7 +269,7 @@ async function loadSettings() {
     updateBareboneJB();
     loadExploitChain();
   } catch (e) {
-    alert("Error in loadSettings: " + e.message);
+    alert("Erro ao carregar configurações: " + e.message);
   }
 }
 
