@@ -268,7 +268,7 @@ function load_PS4Xplorer(name) {
 // Custom uploaded Payload
 function custom(payloadFile) {
     if (!payloadFile) {
-        alert("Empty file");
+        alert("Selecione um arquivo de complemento para enviar ao PS4.");
         return;
     }
     Loadpayloadlocal(URL.createObjectURL(payloadFile), payloadFile.name);

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel includes/js/index.js --out-file includes/js/index-legacy.js --presets=@babel/preset-env",
     "watch": "babel includes/js/index.js --out-file includes/js/index-legacy.js --presets=@babel/preset-env --watch",
-    "test": "node tests/interface.test.cjs"
+    "test": "node -e \"require('./tests/interface.test.cjs'); require('./tests/status.test.cjs')\""
   },
   "devDependencies": {
     "@babel/cli": "^7.24.1",

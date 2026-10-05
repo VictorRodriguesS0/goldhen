@@ -85,6 +85,7 @@ const ui = {
 // Jailbreak-related functions
 async function jailbreak() {
   if (user.platform !== "PS4") return;
+  if (window.XPStatus) window.XPStatus.begin();
 
   // clear terminal
   ui.consoleElement.textContent = '';
@@ -215,7 +216,8 @@ async function badHoistJailbreak() {
 async function cssFontFaceJailbreak() {
   log("Carregando CSSFontFace de ufm42...");
   await getScript('src/cssfontface/main.js');
-  doCssFontFaceJailbreak();
+  await doCssFontFaceJailbreak();
+  if (window.XPStatus && window.XPStatus.isRunning()) window.XPStatus.fail(false);
 }
 
 async function slopKit() {
@@ -227,7 +229,7 @@ async function slopKit() {
       await getScript("src/slopkit/chain_lapse.js", true);
     }
   } catch (error) {
-    log(error);
+    log('Falha ao carregar SlopKit: ' + error.message, 'red');
   }
 
 }
@@ -237,7 +239,7 @@ async function relapseJailbreak() {
   try {
     await getScript("src/relapse/jb.js?v=10", true);
   } catch (error) {
-    log(error);
+    log('Falha ao carregar Relapse: ' + error.message, 'red');
   }
 }
 

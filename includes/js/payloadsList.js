@@ -37,27 +37,27 @@ const payloadsList = [
   },
   {
     id: "WebSrv",
-    name: "PS4-Websrv",
+    name: "Servidor web do PS4",
     author: "ArabPixel",
-    description: "Inicia um servidor web na porta 80 do PS4 para receber payloads de outros dispositivos.",
+    description: "Inicia um servidor web na porta 80 do PS4 para receber complementos de outros dispositivos.",
     specificFW: "",
     category: "tools",
     funcName: "load_WebSrv"
   },
   {
     id: "NpFakeSignin",
-    name: "NP Fake Signin",
+    name: "Simular conexão com a PSN",
     author: "earthonion",
-    description: "Define o estado da PSN como conectado. Use após a ativação simulada; útil para o vue after free.",
+    description: "Simula o estado conectado da PSN. Use após a ativação simulada do usuário.",
     specificFW: "",
     category: "tools",
     funcName: "load_npFakeSignin"
   },
   {
     id: "BackupDB",
-    name: "Backup dos dados",
+    name: "Cópia de segurança dos dados",
     author: "Stooged",
-    description: "Faz backup dos bancos de dados, licenças e dados de usuário. Após reinicializar o sistema, as chaves podem mudar e impedir a restauração.",
+    description: "Cria uma cópia de segurança dos bancos de dados, licenças e dados de usuário. Após reinicializar o sistema, as chaves podem mudar e impedir a restauração.",
     specificFW: "",
     category: "tools",
     funcName: "load_BackupDB"
@@ -66,7 +66,7 @@ const payloadsList = [
     id: "RestoreDB",
     name: "Restaurar dados",
     author: "Stooged",
-    description: "Restaura os dados salvos pelo payload de backup.",
+    description: "Restaura os dados salvos pelo complemento de cópia de segurança.",
     specificFW: "",
     category: "tools",
     funcName: "load_RestoreDB"
@@ -75,7 +75,7 @@ const payloadsList = [
     id: "DBRebuilder",
     name: "Reconstruir banco de dados",
     author: "4GAMER",
-    description: "Reconstrói o banco de dados FPKG e recupera os ícones de homebrew na tela inicial.",
+    description: "Reconstrói o banco de dados FPKG e recupera os ícones de aplicativos na tela inicial.",
     specificFW: "",
     category: "tools",
     funcName: "load_DBRebuilder"
@@ -91,7 +91,7 @@ const payloadsList = [
   },
   {
     id: "PS4Debug",
-    name: "PS4-Debug",
+    name: "Depuração do PS4",
     author: "CTN & SiSTR0",
     description: "Ferramentas de depuração para PS4.",
     specificFW: "até 12.02",
@@ -154,9 +154,9 @@ const payloadsList = [
   },
   {
     id: "OnlineStoreInstall",
-    name: "Instalar Homebrew Store",
+    name: "Instalar loja de aplicativos",
     author: "LightningMods",
-    description: "Instala a PS4 Homebrew Store.<br>É necessário estar conectado à internet.",
+    description: "Instala a loja de aplicativos PS4 Homebrew Store.<br>É necessário estar conectado à internet.",
     specificFW: "",
     category: "homebrew",
     funcName: "load_onlineStoreInstaller"

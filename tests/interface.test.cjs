@@ -61,6 +61,7 @@ test('todos os caches incluem identidade e idioma e apontam para arquivos existe
     assert.match(manifest, /instagram-qr\.png/, file);
     assert.match(manifest, /languages\/pt-BR\.js/, file);
     assert.match(manifest, /index-legacy\.js/, file);
+    assert.match(manifest, /includes\/js\/status\.js/, file);
     assert.doesNotMatch(manifest, /payloads\/Linux|southbridge/i, file);
     const entries = manifest.split('CACHE:')[1].split('NETWORK:')[0].split(/\r?\n/).filter(s => s.trim() && !s.startsWith('#'));
     for (const entry of entries) assert.ok(fs.existsSync(path.resolve(directory, entry.split('?')[0])), `${file}: ${entry}`);

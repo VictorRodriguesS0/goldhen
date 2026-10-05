@@ -175,6 +175,7 @@
                             Success rate
                         </button>
                     </div>
+                    <p id="jb-result" class="xp-result" role="status" aria-live="polite" hidden></p>
                     <div id="DebugConsole"
                         class="flex-grow min-h-0 min-h-[150px] bg-black/50 p-4 rounded-lg overflow-y-auto mb-4 text-xs font-mono"
                         dir="ltr">
@@ -347,12 +348,12 @@
                             </div>
                             <div class="hidden p-4 rounded-lg bg-gray-50 bg-gray-800" id="custom" role="tabpanel"
                                 aria-labelledby="custom-tab">
-                                <p class="text-sm text-white/80 mb-2">Selecione um arquivo de payload personalizado.</p>
+                                <p class="text-sm text-white/80 mb-2">Selecione um arquivo de complemento personalizado.</p>
                                 <div class="flex gap-2">
                                     <input type="file" id="customPayloadInput" style="width: 150px;"
                                         class="bg-gray-700 p-2 rounded flex-grow text-white border-transparent focus:ring-2 focus:ring-blue-500"
                                         accept=".bin,.elf">
-                                    <button id="sendCustomPayloadBtn" onclick="Loadpayloads('custom')"
+                                    <button id="sendCustomPayloadBtn" onclick="Loadpayloads('custom')" title="Enviar complemento ao PS4" aria-label="Enviar complemento ao PS4"
                                         class="hover:bg-blue-700 p-1 rounded font-semibold transition-colors text-white">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20px"
                                             shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
@@ -677,7 +678,7 @@
     <script>
         // Global Error Tracker
         window.onerror = function (msg, url, lineno, colno, error) {
-            const stack = error.stack || 'No stack trace';
+            const stack = (error && error.stack) || 'Sem detalhes do erro';
             console.error('[onerror]', { msg, url, lineno, colno, stack });
             alert(`Erro: ${msg}\nURL: ${url}\nLinha: ${lineno}, coluna: ${colno}\n\nAnote o erro e entre em contato com a XP Eletrônicos.`);
             return true;
@@ -687,7 +688,7 @@
         window.addEventListener('unhandledrejection', function (event) {
             const reason = event.reason;
             const msg = reason instanceof Error
-                ? `${reason.message}\n\nStack:\n${reason.stack}`
+                ? `${reason.message}\n\nDetalhes:\n${reason.stack}`
                 : String(reason);
             console.error('[unhandledrejection]', reason);
             alert(`Erro em operação assíncrona:\n${msg}\n\nAnote o erro e entre em contato com a XP Eletrônicos.`);
@@ -724,6 +725,7 @@
             }
         });
     </script>
+    <script src="./includes/js/status.js"></script>
     <script src="./includes/js/language.js"></script>
     <!-- Choose index.js or index-legacy.js for older browsers, generated with Babel -->
     <script id="main-logic-loader">

@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# XP PS4 v1.1 · catálogo simplificado
+# XP PS4 v1.2 · português e resultados coloridos
 # Atualizado em 2026-10-03
 
 CACHE:
@@ -99,6 +99,8 @@ CACHE:
 ../../../includes/js/languages/pt-BR.js
 ../../../includes/js/index-legacy.js
 ../../../includes/js/iframe_cache.js
+
+../../../includes/js/status.js
 
 NETWORK:
 *

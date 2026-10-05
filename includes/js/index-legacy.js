@@ -101,6 +101,8 @@ function _jailbreak() {
           }
           return _context.a(2);
         case 1:
+          if (window.XPStatus) window.XPStatus.begin();
+
           // clear terminal
           ui.consoleElement.textContent = '';
           // stop counter
@@ -299,8 +301,11 @@ function _cssFontFaceJailbreak() {
           _context4.n = 1;
           return getScript('src/cssfontface/main.js');
         case 1:
-          doCssFontFaceJailbreak();
+          _context4.n = 2;
+          return doCssFontFaceJailbreak();
         case 2:
+          if (window.XPStatus && window.XPStatus.isRunning()) window.XPStatus.fail(false);
+        case 3:
           return _context4.a(2);
       }
     }, _callee4);
@@ -336,7 +341,7 @@ function _slopKit() {
         case 5:
           _context5.p = 5;
           _t4 = _context5.v;
-          log(_t4);
+          log('Falha ao carregar SlopKit: ' + _t4.message, 'red');
         case 6:
           return _context5.a(2);
       }
@@ -363,7 +368,7 @@ function _relapseJailbreak() {
         case 3:
           _context6.p = 3;
           _t5 = _context6.v;
-          log(_t5);
+          log('Falha ao carregar Relapse: ' + _t5.message, 'red');
         case 4:
           return _context6.a(2);
       }

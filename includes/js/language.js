@@ -23,7 +23,7 @@ function loadLanguage() {
         script.src = `./includes/js/languages/${user.currentLanguage}.js`;
         script.onload = () => resolve(window.lang);
         script.id = "langScript";
-        script.onerror = () => reject(new Error(`Failed to load ${user.currentLanguage}`));
+        script.onerror = () => reject(new Error(`Falha ao carregar o idioma ${user.currentLanguage}`));
         document.head.appendChild(script);
     });
 }
@@ -179,6 +179,7 @@ function applyLanguage(lang) {
     updateText(ui.homebrewTab, 'payloadsHomebrewHeader');
     updateText(ui.customPayloadsTab, 'customPayload');
     updateText(document.querySelector('#custom p'), 'customPayloadHelp');
+    updateTitle(document.getElementById('sendCustomPayloadBtn'), 'sendCustomPayload');
     updateText(ui.stopAutoJbBtn, 'stopAutoJb');
     updateText(ui.advancedPayloadsTab, 'advanced');
     updateText(ui.consoleElement.querySelector('center'), 'waitingUserInput');

@@ -10,7 +10,7 @@ function getScript(source, isModule = false) {
         gs.type = isModule ? 'module' : 'text/javascript';
         gs.async = false;
         gs.onload = () => resolve();
-        gs.onerror = () => reject(new Error("Script load failed: " + source));
+        gs.onerror = () => reject(new Error("Falha ao carregar script: " + source));
         document.body.appendChild(gs);
     });
 }
@@ -30,6 +30,7 @@ function isHttps() {
 }
 
 function log(message, color) {
+    if (color === 'red' && window.XPStatus && window.XPStatus.isRunning()) window.XPStatus.fail(false);
     // In index.html context, use ui.consoleElement; in exploit.html, fall back to bare element
     var consoleEl = (typeof ui !== 'undefined' && ui.consoleElement)
         ? ui.consoleElement
@@ -74,6 +75,7 @@ function updateJbStats(attempt, isSuccess) {
 }
 
 function jailbreakSuccess(statusMessage) {
+    if (window.XPStatus && !window.XPStatus.success()) return;
     if (sessionStorage.getItem('jailbreakNow') == "true") {
         sessionStorage.removeItem('jailbreakNow');
     }
@@ -84,6 +86,6 @@ function jailbreakSuccess(statusMessage) {
     }
 
     if (typeof ui !== 'undefined' && ui.exploitState) {
-        ui.exploitState.textContent = statusMessage || (window.lang && window.lang.jailbreakSuccess) || 'Jailbreak successful!';
+        ui.exploitState.textContent = statusMessage || (window.lang && window.lang.jailbreakSuccess) || 'Desbloqueio concluído com sucesso!';
     }
 }
